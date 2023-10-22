@@ -8,7 +8,7 @@
 
 void bubble_sort(int *array, size_t size)
 {
-	size_t a, j;
+	size_t a, b;
 	int temp;
 	int swapped;
 
@@ -19,13 +19,13 @@ void bubble_sort(int *array, size_t size)
 	for (a = 0; a < size - 1; a++)
 	{
 		swapped = 0;
-		for (j = 0; j < size - a - 1; j++)
+		for (b = 0; b < size - a - 1; b++)
 		{
-			if (array[j] > array[j + 1])
+			if (array[b] > array[b + 1])
 			{
-				temp = array[j];
-				array[j] = array[j + 1];
-				array[j + 1] = temp;
+				temp = array[b];
+				array[b] = array[b + 1];
+				array[b + 1] = temp;
 				swapped = 1;
 				print_array(array, size);
 			}
