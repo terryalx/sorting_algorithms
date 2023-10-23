@@ -2,29 +2,28 @@
 
 /**
  * insertion_sort_list - sorts a doubly linked list of integers
- * in ascending order using the Insertion sort algorithm
  * @list: double linked llist
  */
 
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *curr, *prevprev, *prevv, *curr1, *currnext;
+	listint_t *current, *prevprev, *prevv, *curr1, *currnext;
 
 	if (list == NULL || *list == NULL || (*list)->next == NULL)
 	{
 		return;
 	}
 
-	curr = *list;
+	current = *list;
 
-	while (curr)
+	while (current)
 	{
-		if (curr->prev && curr->prev->n > curr->n)
+		if (current->prev && current->prev->n > current->n)
 		{
-			prevprev = curr->prev->prev;
-			prevv = curr->prev;
-			curr1 = curr;
-			currnext = curr->next;
+			prevprev = current->prev->prev;
+			prevv = current->prev;
+			curr1 = current;
+			currnext = current->next;
 
 			prevv->next = currnext;
 
@@ -41,11 +40,11 @@ void insertion_sort_list(listint_t **list)
 				*list = curr1;
 
 			prevv->prev = curr1;
-			curr = *list;
+			current = *list;
 			print_list(*list);
 			continue;
 		}
 		else
-			curr = curr->next;
+			current = current->next;
 	}
 }
