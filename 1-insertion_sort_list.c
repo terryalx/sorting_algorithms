@@ -34,10 +34,13 @@ void insertion_sort_list(listint_t **list)
 			curr1->next = prevv;
 
 			if (prevprev)
+			{
 				prevprev->next = curr1;
-
+			}
 			else
+			{
 				*list = curr1;
+			}
 
 			prevv->prev = curr1;
 			current = *list;
