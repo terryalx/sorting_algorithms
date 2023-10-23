@@ -1,36 +1,50 @@
 #include "sort.h"
 
 /**
- * bubble_sort - Sorts an array of integers in ascending
- * order using the bubble sort algorithm.
- *
- * @array: The array to be sorted.
- * @size: Size of the array.
+ * insertion_sort_list - sorts a doubly linked list of integers
+ * @list: the ouble linked llist
  */
-void bubble_sort(int *array, size_t size) {
-	size_t i, j;
-	int temp;
-	int swapped;
 
-	if (array == NULL || size < 2) {
+void insertion_sort_list(listint_t **list)
+{
+	listint_t *curr, *prevprev, *prevv, *curr1, *currnext;
+
+	if (list == NULL)
+	{
 		return;
 	}
 
-	for (i = 0; i < size - 1; i++) {
-		swapped = 0;
+	curr = *list;
 
-		for (j = 0; j < size - i - 1; j++) {
-			if (array[j] > array[j + 1]) {
-				temp = array[j];
-				array[j] = array[j + 1];
-				array[j + 1] = temp;
-				swapped = 1;
-				print_array(array, size);
-			}
+	while (curr)
+	{
+		if (curr->prev && curr->prev->n > curr->n)
+		{
+			prevprev = curr->prev->prev;
+			prevv = curr->prev;
+			curr1 = curr;
+			currnext = curr->next;
+
+			prevv->next = currnext;
+
+			if (currnext)
+				currnext->prev = prevv;
+
+			curr1->prev = prevprev;
+			curr1->next = prevv;
+
+			if (prevprev)
+				prevprev->next = curr1;
+
+			else
+				*list = curr1;
+
+			prevv->prev = curr1;
+			curr = *list;
+			print_list(*list);
+			continue; 
 		}
-		if (swapped == 0) {
-			return;
-		}
+		else
+			curr = curr->next;
 	}
 }
-
