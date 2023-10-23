@@ -28,21 +28,17 @@ void insertion_sort_list(listint_t **list)
 			prevv->next = currentNext;
 
 			if (currentNext)
-			{
 				currentNext->prev = prevv;
-			}
 
 			curr1->prev = prevprev;
 			curr1->next = prevv;
 
 			if (prevprev)
-			{
 				prevprev->next = curr1;
-			}
+
 			else
-			{
 				*list = curr1;
-			}
+
 			prevv->prev = curr1;
 			current = *list;
 			print_list(*list);
