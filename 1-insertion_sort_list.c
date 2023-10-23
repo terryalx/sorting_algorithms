@@ -28,9 +28,7 @@ void insertion_sort_list(listint_t **list)
 			prevv->next = currentNext;
 
 			if (currentNext)i
-			{
 				currentNext->prev = prevv;
-			}
 
 			curr1->prev = prevprev;
 			curr1->next = prevv;
