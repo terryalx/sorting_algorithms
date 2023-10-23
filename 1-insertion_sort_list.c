@@ -11,7 +11,9 @@ void insertion_sort_list(listint_t **list)
 	listint_t *curr, *prevprev, *prevv, *curr1, *currnext;
 
 	if (list == NULL || *list == NULL || (*list)->next == NULL)
+	{
 		return;
+	}
 
 	curr = *list;
 
