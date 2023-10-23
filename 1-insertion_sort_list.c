@@ -42,7 +42,7 @@ void insertion_sort_list(listint_t **list)
 			prevv->prev = curr1;
 			curr = *list;
 			print_list(*list);
-			continue; 
+			continue;
 		}
 		else
 			curr = curr->next;
