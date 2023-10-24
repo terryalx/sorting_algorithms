@@ -15,18 +15,19 @@ void swap_int(int *a, int *b)
 }
 
 /**
- * lomuto_partition - partition through an array of integers
- * @array: array of integers
- * @size: the size of the array
- * @l: first index of array
- * @h: last index of array
+ * lomuto_partition - array of integers
+ * @array: int arry
+ * @size: array size
+ * @l: index 1
+ * @h: index -1
  *
- * Description: all values must be accurate
- * Return: new index position
+ * Return: new arry index
  */
 int lomuto_partition(int *array, size_t size, int l, int h)
 {
-	int pivot = array[h], i = l, j;
+	int pivot = array[h];
+	int i = l;
+	int j;
 
 	for (j = l; j <= h - 1; j++)
 	{
@@ -45,6 +46,7 @@ int lomuto_partition(int *array, size_t size, int l, int h)
 		swap_int(&array[i], &array[h]);
 		print_array(array, size);
 	}
+
 	return (i);
 }
 
