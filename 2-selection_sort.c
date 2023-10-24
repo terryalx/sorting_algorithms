@@ -11,15 +11,16 @@
 void selection_sort(int *array, size_t size)
 {
 	size_t a;
-	size_t j, tmp, jMin;
+	size_t b;
+	size_t tmp, jMin;
 
 	for (a = 0; a < size - 1; a++)
 	{
 		jMin = a;
-		for (j = a + 1; j < size; j++)
-			if (array[j] < array[jMin])
+		for (b = a + 1; b < size; b++)
+			if (array[b] < array[jMin])
 			{
-				jMin = j;
+				jMin = b;
 			}
 
 		if (jMin != a)
