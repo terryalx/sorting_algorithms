@@ -80,7 +80,7 @@ void lomuto_sort(int *array, size_t size, int low, int high)
  */
 void quick_sort(int *array, size_t size)
 {
-	if (!array || arry == NULL || size < 2)
+	if (!array || size < 2)
 	{
 		return;
 	}
