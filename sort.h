@@ -36,4 +36,6 @@ int lomuto_partition(int *array, size_t size, int l, int h);
 
 void swap_int(int *a, int *b);
 
+void swap(listint_t *a, listint_t *b);
+
 #endif
