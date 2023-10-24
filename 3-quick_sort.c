@@ -58,15 +58,15 @@ int lomuto_partition(int *array, size_t size, int low, int high)
  * @h: the last index of the array
  * Return: 0
  */
-void lomuto_sort(int *array, size_t size, int low int high)
+void lomuto_sort(int *array, size_t size, int l, int h)
 {
-	int holder;
+	int i;
 
-	if (low < high)
+	if (l < h)
 	{
-		holder = lomuto_partition(array, size, low, high);
-		lomuto_sort(array, size, low, holder - 1);
-		lomuto_sort(array, size, holder + 1, high);
+		i = lomuto_partition(array, size, l, h);
+		lomuto_sort(array, size, l, i - 1);
+		lomuto_sort(array, size, i + 1, h);
 	}
 }
 
