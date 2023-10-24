@@ -1,13 +1,13 @@
 #include "sort.h"
 
 /**
- * swap_int - swaps elements in array
+ * swap - swaps elements in array
  * @a: element 1
  * @b: element 2
  *
  * Return: NULL
  */
-void swap_int(int *a, int *b)
+void swap(int *a, int *b)
 {
 	*a = *a + *b;
 	*b = *a - *b;
@@ -35,7 +35,7 @@ int lomuto_partition(int *array, size_t size, int low, int high)
 		{
 			if (i != j)
 			{
-				swap_int(&array[i], &array[j]);
+				swap(&array[i], &array[j]);
 				print_array(array, size);
 			}
 			i++;
@@ -43,7 +43,7 @@ int lomuto_partition(int *array, size_t size, int low, int high)
 	}
 	if (pivot != array[i])
 	{
-		swap_int(&array[i], &array[high]);
+		swap(&array[i], &array[high]);
 		print_array(array, size);
 	}
 
