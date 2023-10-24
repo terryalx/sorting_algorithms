@@ -10,19 +10,22 @@
  */
 void selection_sort(int *array, size_t size)
 {
-	size_t i, j, tmp, jMin;
+	size_t a;
+	size_t j, tmp, jMin;
 
-	for (i = 0; i < size - 1; i++)
+	for (a = 0; a < size - 1; a++)
 	{
-		jMin = i;
-		for (j = i + 1; j < size; j++)
+		jMin = a;
+		for (j = a + 1; j < size; j++)
 			if (array[j] < array[jMin])
+			{
 				jMin = j;
+			}
 
-		if (jMin != i || !jMin)
+		if (jMin != a)
 		{
-			tmp = array[i];
-			array[i] = array[jMin];
+			tmp = array[a];
+			array[a] = array[jMin];
 			array[jMin] = tmp;
 
 			print_array(array, size);
