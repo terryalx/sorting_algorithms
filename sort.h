@@ -32,7 +32,7 @@ void print_list(const listint_t *list);
 
 void print_array(const int *array, size_t size);
 
-int lomuto_partition(int *array, size_t size, int l, int h);
+int lomuto_partition(int *array, size_t size, int low, int high);
 
 void swap_int(int *a, int *b);
 

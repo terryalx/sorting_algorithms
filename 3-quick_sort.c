@@ -18,36 +18,32 @@ void swap_int(int *a, int *b)
  * lomuto_partition - array of integers
  * @array: int arry
  * @size: array size
- * @l: index 1
- * @h: index -1
+ * @low: index 1
+ * @high: index -1
  *
  * Return: new arry index
  */
-int lomuto_partition(int *array, size_t size, int l, int h)
+int lomuto_partition(int *array, size_t size, int low, int high)
 {
-	int pivot = array[h];
-	int i = l;
-	int j;
+	int pivot = array[high];
+	int i = low - 1;
 
-	for (j = l; j <= h - 1; j++)
-	{
-		if (array[j] < pivot)
-		{
-			if (i != j)
-			{
+	for (int j = low; j <= high - 1; j++) {
+		if (array[j] < pivot) {
+			if (i != j) {
 				swap_int(&array[i], &array[j]);
 				print_array(array, size);
 			}
 			i++;
 		}
 	}
-	if (pivot != array[i])
-	{
-		swap_int(&array[i], &array[h]);
+
+	if (array[i + 1] != pivot) {
+		swap_int(&array[i + 1], &array[high]);
 		print_array(array, size);
 	}
 
-	return (i);
+	return (i + 1);
 }
 
 /**
