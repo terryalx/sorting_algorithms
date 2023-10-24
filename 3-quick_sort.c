@@ -1,18 +1,19 @@
 #include "sort.h"
 
 /**
- * swap_int - swaps two elements in an array
- * @a: the first element
- * @b: the second element
+ * swap_int - swaps elements in array
+ * @a: element 1
+ * @b: element 2
+ *
+ * Return: NULL
  */
-
 void swap_int(int *a, int *b)
 {
 	int temp;
 
-	temp = *a;
 	*a = *b;
 	*b = temp;
+	temp = *a;
 }
 
 /**
