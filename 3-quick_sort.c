@@ -1,76 +1,50 @@
 #include "sort.h"
 
 /**
- * swap - swaps 2 int values
- * @array: the integer array to sort
- * @size: the size of the array
- * @a: address of first value
- * @b: address of second value
- *
- * Return: void
+ * swap - swaps two nodes in a doubly-linked list
+ * @a: address of the first node
+ * @b: address of the second node
  */
-void swap(int *array, size_t size, int *a, int *b)
+void swap(listint_t *a, listint_t *b)
 {
-	if (*a != *b)
-	{
-		*a = *a + *b;
-		*b = *a - *b;
-		*a = *a - *b;
-		print_array((const int *)array, size);
-	}
+	if (a->prev)
+		a->prev->next = b;
+	if (b->next)
+		b->next->prev = a;
+	a->next = b->next;
+	b->prev = a->prev;
+	a->prev = b;
+	b->next = a;
 }
 
 /**
- * lomuto_partition - partitions the array
- * @array: the integer array to sort
- * @size: the size of the array
- * @lo: the low index of the sort range
- * @hi: the high index of the sort range
- *
- * Return: void
+ * insertion_sort_list - insertion sorts a doubly-linked list
+ * @list: address of pointer to the head node
  */
-size_t lomuto_partition(int *array, size_t size, ssize_t lo, ssize_t hi)
+void insertion_sort_list(listint_t **list)
 {
-	int i, j, pivot = array[hi];
+	listint_t *i, *j;
 
-	for (i = j = lo; j < hi; j++)
-		if (array[j] < pivot)
-			swap(array, size, &array[j], &array[i++]);
-	swap(array, size, &array[i], &array[hi]);
-
-	return (i);
-}
-
-/**
- * quicksort - quicksorts via Lomuto partitioning scheme
- * @array: the integer array to sort
- * @size: the size of the array
- * @lo: the low index of the sort range
- * @hi: the high index of the sort range
- *
- * Return: void
- */
-void quicksort(int *array, size_t size, ssize_t lo, ssize_t hi)
-{
-	if (lo < hi)
-	{
-		size_t p = lomuto_partition(array, size, lo, hi);
-
-		quicksort(array, size, lo, p - 1);
-		quicksort(array, size, p + 1, hi);
-	}
-}
-
-/**
- * quick_sort - calls quicksort
- * @array: the integer array to sort
- * @size: the size of the array
- *
- * Return: void
- */
-void quick_sort(int *array, size_t size)
-{
-	if (!array || !size)
+	if (!list || !*list || !(*list)->next)
 		return;
-	quicksort(array, size, 0, size - 1);
+
+	i = (*list)->next;
+	while (i)
+	{
+		j = i;
+		i = i->next;
+		while (j && j->prev)
+		{
+			if (j->prev->n > j->n)
+			{
+				swap(j->prev, j);
+				if (!j->prev)
+					*list = j;
+				print_list((const listint_t *)*list);
+			}
+			else
+				j = j->prev;
+		}
+	}
 }
+
