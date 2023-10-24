@@ -51,22 +51,23 @@ int lomuto_partition(int *array, size_t size, int low, int high)
 }
 
 /**
- * lomuto_sort - implement the quick sort algorithm using recursion
- * @array: the array
- * @size: the size of the array
- * @l: first index of the array
- * @h: the last index of the array
+ * lomuto_sort - quick sort algorithm
+ * @array: array
+ * @size: array size
+ * @low: array index 1
+ * @high: array index - 1
+ *
  * Return: 0
  */
 void lomuto_sort(int *array, size_t size, int low, int high)
 {
-	int i;
+	int hld;
 
 	if (low < high)
 	{
-		i = lomuto_partition(array, size, low, high);
-		lomuto_sort(array, size, low, i - 1);
-		lomuto_sort(array, size, i + 1, high);
+		hld = lomuto_partition(array, size, low, high);
+		lomuto_sort(array, size, low, hld - 1);
+		lomuto_sort(array, size, hld + 1, high);
 	}
 }
 
