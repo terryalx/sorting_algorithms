@@ -72,14 +72,17 @@ void lomuto_sort(int *array, size_t size, int low, int high)
 }
 
 /**
- * quick_sort - sort an array of integers in ascending order
- * @array: the array
- * @size: the size of the array
+ * quick_sort - sorting array
+ * @array: array
+ * @size: array size
+ *
  * Return: 0
  */
 void quick_sort(int *array, size_t size)
 {
-	if (!array || size < 2)
+	if (!array || arry == NULL || size < 2)
+	{
 		return;
+	}
 	lomuto_sort(array, size, 0, size - 1);
 }
