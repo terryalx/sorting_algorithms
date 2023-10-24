@@ -41,13 +41,13 @@ int lomuto_partition(int *array, size_t size, int low, int high)
 			i++;
 		}
 	}
-	if (array[i + 1] != pivot)
+	if (array[i] != pivot)
 	{
 		swap_int(&array[i], &array[high]);
 		print_array(array, size);
 	}
 
-	return (i + 1);
+	return (i);
 }
 
 /**
